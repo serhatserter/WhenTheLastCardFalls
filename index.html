@@ -1,0 +1,1914 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>When The Last Card Falls — Pitch Deck</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=MedievalSharp&family=Uncial+Antiqua&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ═══════════════════════════════════════════════════════
+       RESET
+    ═══════════════════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --purple-deep:   #130f1a;
+      --purple-mid:    #241f33;
+      --purple-bright: #7a6a94;
+      --purple-glow:   #a89bc4;
+      --navy:          #0b111e;
+      --navy-mid:      #131a29;
+      --grey-stone:    #15151c;
+      --white:         #ffffff;
+      --white-85:      rgba(255,255,255,0.85);
+      --white-60:      rgba(255,255,255,0.60);
+      --white-35:      rgba(255,255,255,0.35);
+      --white-10:      rgba(255,255,255,0.10);
+      --white-05:      rgba(255,255,255,0.05);
+      --border:        rgba(250,209,84,0.15);
+      --border-hi:     #c29e46; /* Lighter Antique Gold */
+      --border-glow:   #fad154; /* Lighter Bright Gold */
+      --check:         #80e891;
+      --cross-col:     rgba(255,255,255,0.15);
+
+      /* 90s ARPG accent colours */
+      --amber:   #fad154;   /* Lighter yellow */
+      --amber-lo: #a37c2a;  /* Lighter amber-lo */
+      --red-dark: #6b0f0f;
+      
+      --cream-parchment: #e2dcd0;
+    }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      /* Custom ARPG Gold Sword Pointer Cursor */
+      cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><path d='M0,0 L20,10 L12,12 L10,20 Z' fill='%23c8922a' stroke='%233a2807' stroke-width='2'/><circle cx='11' cy='11' r='2' fill='red'/></svg>"), auto;
+    }
+    
+    a, button, .dot, .ctrl-btn {
+      /* Custom ARPG Hover Cursor */
+      cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><path d='M0,0 L20,10 L12,12 L10,20 Z' fill='%23ffbf3f' stroke='%233a2807' stroke-width='2'/><circle cx='11' cy='11' r='2' fill='%2380e891'/></svg>"), pointer;
+    }
+
+    body {
+      background: var(--purple-deep);
+      color: #e0d8cc; /* parchment cream */
+      font-family: 'Georgia', serif;
+      font-size: 18px;
+      line-height: 1.65;
+    }
+
+    /* Language visibility rules (strictly hides inactive language targets to prevent layout breaking) */
+    .lang-tr [data-lang="en"] { display: none !important; }
+    .lang-en [data-lang="tr"] { display: none !important; }
+
+    /* ═══════════════════════════════════════════════════════
+       DOWNLOAD BUTTON (SLIDE 1)
+    ═══════════════════════════════════════════════════════ */
+    .s1-download-wrap {
+      margin: 1.5rem auto 0;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      max-width: 380px;
+    }
+    .s1-download-btn {
+      width: 100% !important;
+      padding: 0.8rem 1.8rem !important;
+      font-size: 1.05rem !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      border-color: var(--border-glow) !important;
+      background: linear-gradient(to bottom, #a37c2a 0%, #3a2807 100%) !important;
+      box-shadow: 0 0 15px rgba(250,209,84,0.3), inset 0 1px 0 rgba(255,255,255,0.15) !important;
+      text-decoration: none;
+    }
+    .s1-download-btn:hover {
+      background: linear-gradient(to bottom, #fad154 0%, #a37c2a 100%) !important;
+      box-shadow: 0 0 25px rgba(250,209,84,0.5), inset 0 1px 0 rgba(255,255,255,0.25) !important;
+    }
+    .download-icon {
+      font-size: 1.25rem;
+      text-shadow: 0 0 5px var(--white);
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       SLIDE 12 — TEAM & CONTACT
+    ═══════════════════════════════════════════════════════ */
+    .studio-branding {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 0.5rem;
+    }
+    .studio-logo {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 10px rgba(250,209,84,0.35));
+    }
+    .studio-name {
+      font-family: 'Cinzel', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--amber);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-shadow: 1px 1px 0 rgba(0,0,0,0.9);
+    }
+    .s12-layout {
+      width: 100%;
+      max-width: 960px;
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    .s12-left-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .profile-frame {
+      width: 240px;
+      height: 240px;
+      padding: 6px;
+      border: 3px double var(--border-hi);
+      border-radius: 4px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.6);
+      overflow: hidden;
+      background: var(--purple-mid);
+    }
+    .profile-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 2px;
+      filter: grayscale(15%) contrast(1.05);
+      transition: filter 0.3s;
+    }
+    .profile-frame:hover .profile-img {
+      filter: grayscale(0%) contrast(1.1);
+    }
+    .s12-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      width: 100%;
+      max-width: 240px;
+    }
+    .s12-link-btn {
+      width: 100% !important;
+      text-align: center;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .s12-right-col {
+      padding: 2.2rem 2rem;
+      text-align: left;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       GLOBAL STONE TEXTURE BACKGROUND
+       floor_texture 1.png tiled + dark overlay + colour tint
+     ═══════════════════════════════════════════════════════ */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        /* dark purple colour overlay with high contrast */
+        linear-gradient(160deg,
+          rgba(20, 15, 26, 0.95) 0%,
+          rgba(12, 9, 16, 0.97) 50%,
+          rgba(20, 15, 26, 0.95) 100%),
+        /* stone texture */
+        url('assets/images/floor_texture 1.png') repeat center center;
+      background-size: auto, 333px 333px;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* CRT scanline effect */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(
+        to bottom,
+        transparent 0px,
+        transparent 3px,
+        rgba(0,0,0,0.08) 3px,
+        rgba(0,0,0,0.08) 4px
+      );
+      pointer-events: none;
+      z-index: 998;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       ORNATE CORNER DECORATION (CSS-only, 90s ARPG style)
+    ═══════════════════════════════════════════════════════ */
+    .corner-decor {
+      position: fixed;
+      width: 16px;
+      height: 16px;
+      background: var(--amber);
+      border: 2px solid #5a421a;
+      z-index: 900;
+      pointer-events: none;
+      box-shadow: 0 0 8px rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    /* Rivet inside corner decor */
+    .corner-decor::before {
+      content: '';
+      width: 4px;
+      height: 4px;
+      background: #3a2807;
+      border-radius: 50%;
+    }
+
+    .corner-tl { top: 262px; left: 8px; }
+    .corner-tr { top: 262px; right: 8px; }
+    .corner-bl { bottom: 56px; left: 8px; }
+    .corner-br { bottom: 56px; right: 8px; }
+
+    /* ═══════════════════════════════════════════════════════
+       SLIDE DECK WRAPPER
+    ═══════════════════════════════════════════════════════ */
+    .deck {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* ── SLIDES ── */
+    .slide {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 18.5rem 5rem 5rem;
+      overflow-y: auto;
+      z-index: 1;
+
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.42s ease, transform 0.42s ease;
+      transform: translateX(80px);
+      will-change: opacity, transform;
+    }
+    .slide.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(0);
+      z-index: 2;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       NAVIGATION BAR — 90s UI frame style
+    ═══════════════════════════════════════════════════════ */
+    .nav-bar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 50px;
+      z-index: 960;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      background: linear-gradient(to bottom, rgba(10,5,20,0.98) 0%, rgba(20,12,38,0.94) 100%);
+      border-bottom: 2px solid var(--border-hi);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.8);
+    }
+    .nav-bar::before,
+    .nav-bar::after {
+      content: '◆ ❖ ◆';
+      font-size: 0.7rem;
+      letter-spacing: 0.3rem;
+      color: var(--amber);
+      opacity: 0.8;
+      flex-shrink: 0;
+      text-shadow: 0 0 5px rgba(250,209,84,0.5);
+    }
+    .global-header-banner {
+      position: fixed;
+      top: 50px; left: 0; right: 0;
+      height: 210px;
+      z-index: 950;
+      border-bottom: 2px solid var(--border-hi);
+      box-shadow: 0 3px 15px rgba(0,0,0,0.6);
+      overflow: hidden;
+    }
+    .global-header-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      z-index: 1;
+      filter: brightness(0.60) contrast(1.1);
+    }
+    .global-header-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(19, 15, 26, 0.35) 0%, rgba(19, 15, 26, 0.75) 100%);
+      z-index: 2;
+    }
+    .global-banner-title {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.8rem, 4.5vw, 4.2rem);
+      font-weight: 900;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      z-index: 3;
+      text-shadow:
+        3px 3px 0 rgba(0,0,0,0.95),
+        0 0 40px rgba(122,106,148,0.5);
+      pointer-events: none;
+      padding: 0 1rem;
+      text-align: center;
+    }
+
+
+
+    .nav-logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      flex: 1;
+    }
+    .nav-logo-wrap img { width: 34px; height: 34px; object-fit: contain; }
+    .nav-title {
+      font-family: 'Cinzel', serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #e0d8cc;
+    }
+
+    .nav-counter {
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      color: var(--white-60);
+      flex: 1;
+      text-align: center;
+    }
+    .nav-counter strong { color: var(--amber); }
+
+    /* Language Switcher UI */
+    .lang-switch-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.2rem;
+      justify-content: flex-end;
+      flex: 1;
+    }
+    .lang-btn {
+      background: transparent;
+      border: none;
+      color: rgba(255, 255, 255, 0.4);
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: color 0.18s, text-shadow 0.18s;
+      padding: 0.2rem 0.4rem;
+    }
+    .lang-btn.active {
+      color: var(--amber) !important;
+      text-shadow: 0 0 8px rgba(200, 146, 42, 0.6);
+    }
+    .lang-btn:hover {
+      color: var(--white);
+    }
+    .lang-sep {
+      color: rgba(255, 255, 255, 0.2);
+      font-size: 0.8rem;
+      user-select: none;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       CONTROLS — bottom navigation HUD
+       Including health/mana globes
+    ═══════════════════════════════════════════════════════ */
+    .controls {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 950;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      padding: 0.8rem 2rem;
+      background:
+        linear-gradient(to top, rgba(10,5,20,0.98) 0%, rgba(20,12,38,0.94) 100%);
+      border-top: 3px double var(--border-hi);
+      box-shadow: 0 -4px 25px rgba(0,0,0,0.8);
+    }
+
+
+
+    .ctrl-btn {
+      font-family: 'Cinzel', serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      min-width: 105px;
+      padding: 0.5rem 1.2rem;
+      border: 2px solid #5a421a;
+      background: linear-gradient(to bottom, #7a4d0e 0%, #3a2807 100%);
+      color: #e0d8cc;
+      border-radius: 2px;
+      cursor: pointer;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: background 0.18s, border-color 0.18s, color 0.18s, box-shadow 0.18s;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 2px 4px rgba(0,0,0,0.5);
+    }
+    .ctrl-btn:hover:not(:disabled) {
+      background: linear-gradient(to bottom, #c8922a 0%, #7a4d0e 100%);
+      border-color: var(--amber);
+      color: var(--white);
+      box-shadow: 0 0 10px rgba(200,146,42,0.4), inset 0 1px 0 rgba(255,255,255,0.2);
+    }
+    .ctrl-btn:disabled {
+      opacity: 0.15;
+      cursor: default;
+    }
+
+    .dots {
+      display: flex;
+      gap: 0.6rem;
+      align-items: center;
+    }
+    .dot {
+      width: 9px; height: 9px;
+      border-radius: 1px;
+      background: rgba(90, 66, 26, 0.7);
+      border: 1px solid #5a421a;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      padding: 0;
+      transform: rotate(45deg);
+    }
+    .dot.active {
+      background: var(--amber);
+      border-color: var(--white);
+      transform: rotate(45deg) scale(1.3);
+      box-shadow: 0 0 10px var(--amber);
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       TYPOGRAPHY
+    ═══════════════════════════════════════════════════════ */
+    .eyebrow {
+      font-family: 'Cinzel', serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--amber);
+      display: block;
+      margin-bottom: 0.6rem;
+      text-shadow: 1px 1px 0 rgba(0,0,0,0.9);
+    }
+
+    /* 90s ARPG section title style */
+    .slide-title {
+      font-family: 'Cinzel', serif;
+      font-weight: 900;
+      color: #f7df94; /* Lighter Gold */
+      line-height: 1.1;
+      letter-spacing: 0.02em;
+      /* Engraved text shadow effect */
+      text-shadow:
+        2px 2px 0 rgba(0,0,0,0.9),
+        0 0 20px rgba(250,209,84,0.3);
+    }
+
+    .section-divider {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin: 0.8rem 0 1.6rem;
+      color: var(--amber);
+    }
+    .section-divider::before,
+    .section-divider::after {
+      content: '';
+      flex: 1;
+      height: 2px;
+      background: linear-gradient(to right, transparent, var(--amber), transparent);
+    }
+    .section-divider-icon { font-size: 0.9rem; opacity: 0.9; text-shadow: 0 0 5px var(--amber); }
+
+    /* Ornate panel — 90s RPG UI box */
+    .rpg-panel {
+      background:
+        linear-gradient(135deg, rgba(37,31,51,0.85) 0%, rgba(20,16,28,0.85) 100%);
+      border: 3px double var(--border-hi);
+      border-radius: 2px;
+      position: relative;
+      box-shadow:
+        inset 0 0 30px rgba(0,0,0,0.95),
+        0 5px 15px rgba(0,0,0,0.7);
+    }
+    /* Corner rivets on panels */
+    .rpg-panel::before {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border: 1px solid transparent;
+      border-image:
+        linear-gradient(to bottom right, var(--amber) 0%, transparent 40%) 1;
+      pointer-events: none;
+    }
+
+    /* ─ Glowing gold hr ─ */
+    .glow-hr {
+      border: none;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--amber), transparent);
+      margin: 1.5rem 0;
+      box-shadow: 0 0 8px var(--amber);
+    }
+
+    .mc-body, .sol-list li, .loop-label, .mech-points li, .prog-card p, td, .biz-card p {
+      font-family: 'Inter', sans-serif !important; /* highly readable sans-serif */
+      font-size: 1.02rem !important;
+      line-height: 1.75 !important;
+      color: rgba(255, 255, 255, 0.85) !important;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       SLIDE 1 — TITLE
+    ═══════════════════════════════════════════════════════ */
+    .s1-inner {
+      text-align: center;
+      max-width: 860px;
+      width: 100%;
+    }
+
+
+
+    .s1-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(3rem, 7vw, 6rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.0;
+      letter-spacing: 0.03em;
+      margin-bottom: 0.5rem;
+      text-shadow:
+        2px 2px 0 rgba(0,0,0,0.9),
+        0 0 60px rgba(122,106,148,0.4),
+        0 0 120px rgba(122,106,148,0.15);
+    }
+
+    .s1-tagline {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(1rem, 1.9vw, 1.25rem);
+      font-style: italic;
+      color: var(--white-60);
+      max-width: 660px;
+      margin: 1.8rem auto 0;
+      line-height: 1.9;
+      font-weight: 300;
+    }
+
+    .s1-video-wrapper {
+      max-width: 520px;
+      width: 100%;
+      aspect-ratio: 16/9;
+      margin: 2rem auto 0;
+      border: 2px solid var(--border-hi);
+      box-shadow: 0 0 25px rgba(145,130,175,0.45);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .s1-video-link {
+      display: block;
+      width: 100%;
+      height: 100%;
+      text-decoration: none;
+    }
+    .s1-video-thumbnail-wrap {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .s1-video-thumb {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.70;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .s1-video-link:hover .s1-video-thumb {
+      transform: scale(1.04);
+      opacity: 0.85;
+    }
+    .s1-play-btn {
+      position: absolute;
+      width: 68px;
+      height: 68px;
+      background: rgba(122, 106, 148, 0.85);
+      border: 2px solid var(--border-hi);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.25s, transform 0.25s, box-shadow 0.25s;
+      box-shadow: 0 0 20px rgba(122, 106, 148, 0.6);
+      z-index: 2;
+    }
+    .play-icon {
+      color: var(--white);
+      font-size: 1.6rem;
+      margin-left: 5px;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+    .s1-video-link:hover .s1-play-btn {
+      background: rgba(168, 155, 196, 0.95);
+      transform: scale(1.08);
+      box-shadow: 0 0 30px rgba(168, 155, 196, 0.9);
+    }
+    .s1-video-overlay-text {
+      position: absolute;
+      bottom: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--white-85);
+      background: rgba(14, 8, 24, 0.85);
+      padding: 0.35rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      text-transform: uppercase;
+      z-index: 2;
+      pointer-events: none;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .s1-video-link:hover .s1-video-overlay-text {
+      color: var(--white);
+      border-color: var(--border-glow);
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       SLIDE 2 — MARKET OPPORTUNITY
+    ═══════════════════════════════════════════════════════ */
+    .s2-layout { width: 100%; max-width: 960px; }
+
+    .market-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.8rem;
+      margin-top: 1.5rem;
+      width: 100%;
+    }
+    .market-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      gap: 1.2rem;
+    }
+    .market-top-row .market-card {
+      flex: 1;
+    }
+    .market-operator-plus {
+      font-family: 'Cinzel', serif;
+      font-size: 3.2rem;
+      font-weight: 900;
+      color: var(--white);
+      text-shadow: 0 0 15px rgba(255,255,255,0.6);
+      user-select: none;
+      padding: 0 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .market-operator-equals {
+      font-family: 'Cinzel', serif;
+      font-size: 3.2rem;
+      font-weight: 900;
+      color: var(--white);
+      text-shadow: 0 0 15px rgba(255,255,255,0.6);
+      user-select: none;
+      margin: -0.2rem 0;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .market-card-bottom {
+      width: 100%;
+    }
+
+    .market-card {
+      padding: 1.8rem 2rem;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+    .market-card:hover { border-color: var(--border-glow) !important; transform: translateY(-3px); }
+
+    .mc-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--purple-glow);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Slide 2 specific overrides for white & enlarged headers/eyebrows */
+    .slide[data-index="1"] .eyebrow,
+    .slide[data-index="1"] .mc-label {
+      color: var(--white) !important;
+      font-size: clamp(0.95rem, 1.8vw, 1.2rem) !important;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-shadow: 0 0 10px rgba(255,255,255,0.4);
+    }
+
+    .mc-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.6rem;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       SLIDE 3 — SOLUTION
+    ═══════════════════════════════════════════════════════ */
+    .s3-layout {
+      width: 100%;
+      max-width: 960px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    .sol-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1.8rem;
+    }
+    .sol-list li {
+      display: flex;
+      gap: 1.1rem;
+      align-items: flex-start;
+      padding: 1.3rem 1.6rem;
+      font-size: 1.05rem;
+      color: var(--white-85);
+      line-height: 1.65;
+      transition: border-color 0.25s;
+    }
+    .sol-list li:hover { border-color: var(--border-glow) !important; }
+    .sol-icon {
+      font-size: 1.4rem;
+      flex-shrink: 0;
+      margin-top: 0.05rem;
+    }
+
+    .s3-img-wrap { display: flex; align-items: center; justify-content: center; }
+    .s3-fan-img {
+      width: min(280px, 38vw);
+      opacity: 0.55;
+      filter: hue-rotate(230deg) saturate(0.4) brightness(0.8);
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       SLIDE 4 — GAMEPLAY LOOP
+    ═══════════════════════════════════════════════════════ */
+    .s4-layout { width: 100%; max-width: 1000px; text-align: center; }
+
+    .loop-flow {
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0;
+      margin-top: 2.5rem;
+    }
+
+    .loop-node {
+      padding: 1.8rem 1.3rem;
+      width: 160px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.55rem;
+      transition: border-color 0.25s, transform 0.25s;
+      flex-shrink: 0;
+    }
+    .loop-node:hover { border-color: var(--border-glow) !important; transform: translateY(-4px); }
+
+    .loop-num {
+      font-family: 'Cinzel', serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      color: var(--amber);
+    }
+    .loop-icon { font-size: 2.3rem; line-height: 1; }
+    .loop-arrow {
+      display: flex;
+      align-items: center;
+      color: var(--amber);
+      font-size: 1.5rem;
+      padding: 0 0.2rem;
+      flex-shrink: 0;
+      text-shadow: 0 0 8px var(--amber);
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       SLIDE 5 — POKER COMBO
+    ═══════════════════════════════════════════════════════ */
+    .s5-layout {
+      width: 100%;
+      max-width: 980px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .mech-points {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      margin-top: 1.5rem;
+    }
+    .mech-points li {
+      font-size: 1.05rem;
+      color: var(--white-85);
+      line-height: 1.68;
+      padding-left: 1.3rem;
+      border-left: 3px solid var(--border-hi);
+      transition: border-color 0.2s;
+    }
+    .mech-points li:hover { border-color: var(--amber); }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+    }
+    .tag {
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.9rem;
+      border: 1px solid var(--border-hi);
+      border-radius: 1px;
+      color: var(--amber);
+      transition: background 0.18s;
+    }
+    .tag:hover { background: rgba(200,146,42,0.15); }
+
+    /* Combo widget */
+    .combo-widget {
+      padding: 2rem 1.6rem;
+      text-align: center;
+    }
+    .combo-widget-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.28em;
+      color: var(--white-35);
+      display: block;
+      margin-bottom: 0.8rem;
+    }
+    .combo-hand-name {
+      font-family: 'Cinzel', serif;
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--amber);
+      margin-bottom: 1.3rem;
+      animation: combo-glow 2.5s ease-in-out infinite;
+      text-shadow: 1px 1px 0 rgba(0,0,0,0.8);
+    }
+    @keyframes combo-glow {
+      0%,100% { text-shadow: 1px 1px 0 rgba(0,0,0,0.8), 0 0 15px rgba(200,146,42,0.4); }
+      50%      { text-shadow: 1px 1px 0 rgba(0,0,0,0.8), 0 0 30px rgba(200,146,42,0.8); }
+    }
+    .combo-cards-row {
+      display: flex;
+      justify-content: center;
+      gap: 0.45rem;
+      margin-bottom: 1.5rem;
+    }
+    .cc {
+      width: 46px; height: 66px;
+      background: var(--navy);
+      border: 1px solid var(--border-hi);
+      border-radius: 3px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+    }
+    .cc-suit { font-size: 1.15rem; line-height: 1; }
+    .cc-val  { font-family: 'Cinzel', serif; font-size: 0.65rem; color: var(--white-85); }
+    .suit-r  { color: #e85c5c; }
+    .suit-w  { color: var(--white-85); }
+    .combo-mult {
+      font-family: 'Cinzel', serif;
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #e85c5c;
+      text-shadow: 1px 1px 0 rgba(0,0,0,0.9), 0 0 25px rgba(232,92,92,0.55);
+      line-height: 1;
+    }
+    .combo-mult-sub {
+      font-family: 'Cinzel', serif;
+      font-size: 0.58rem;
+      letter-spacing: 0.18em;
+      color: var(--white-35);
+      display: block;
+      margin-top: 0.3rem;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       SLIDE 6 — SACRIFICE
+    ═══════════════════════════════════════════════════════ */
+    .s6-layout {
+      width: 100%;
+      max-width: 980px;
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .lock-visual {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .lock-img {
+      width: 150px;
+      filter: drop-shadow(0 0 22px rgba(200,146,42,0.3));
+      animation: lock-bob 3s ease-in-out infinite;
+    }
+    @keyframes lock-bob {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(-8px); }
+    }
+    .lock-meter {
+      padding: 1.2rem 1.6rem;
+      text-align: center;
+      width: 100%;
+    }
+    .lock-meter-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.15em;
+      color: var(--white-35);
+      display: block;
+      margin-bottom: 0.7rem;
+    }
+    .lock-bar-outer {
+      height: 10px;
+      background: rgba(0,0,0,0.5);
+      border: 1px solid var(--border-hi);
+      border-radius: 1px;
+      overflow: hidden;
+      margin-bottom: 0.5rem;
+    }
+    .lock-bar-inner {
+      height: 100%;
+      width: 65%;
+      background: linear-gradient(to right, #4a0d0d, #a82424);
+      box-shadow: 0 0 8px #a82424;
+    }
+    .lock-bar-txt {
+      font-family: 'Cinzel', serif;
+      font-size: 0.68rem;
+      color: var(--amber);
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       SLIDE 7 — PROGRESSION
+    ═══════════════════════════════════════════════════════ */
+    .s7-layout { width: 100%; max-width: 960px; text-align: center; }
+
+    .prog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+      margin-top: 2.2rem;
+    }
+    .prog-card { padding: 2rem 1.6rem; text-align: left; transition: border-color 0.25s, transform 0.25s; }
+    .prog-card:hover { border-color: var(--border-glow) !important; transform: translateY(-3px); }
+    .prog-icon { font-size: 2.2rem; margin-bottom: 0.8rem; }
+    .prog-card-title {
+      font-family: 'Cinzel', serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       SLIDE 8 — COMPETITIVE TABLE
+    ═══════════════════════════════════════════════════════ */
+    .s8-layout { width: 100%; max-width: 920px; text-align: center; }
+
+    .table-wrap {
+      margin-top: 2.2rem;
+      border: 1px solid var(--border-hi);
+      border-radius: 2px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    }
+    table { width: 100%; border-collapse: collapse; }
+    thead { background: linear-gradient(to right, rgba(30,16,64,0.9), rgba(8,18,42,0.9), rgba(30,16,64,0.9)); }
+    th {
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white-60);
+      padding: 1.1rem 1.4rem;
+      border-bottom: 1px solid var(--border-hi);
+      text-align: center;
+    }
+    th:first-child { text-align: left; }
+    th.col-ours { color: var(--amber); }
+
+    td {
+      padding: 1rem 1.4rem;
+      border-bottom: 1px solid var(--border);
+      font-size: 1rem;
+      text-align: center;
+      color: var(--white-60);
+      transition: background 0.18s;
+    }
+    td:first-child { text-align: left; color: var(--white-85); font-weight: 600; font-size: 1.0rem; }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: rgba(200,146,42,0.04); }
+    .tcheck { color: var(--check); font-size: 1.1rem; }
+    .tcross { color: var(--cross-col); opacity: 0.6; }
+    .col-ours { color: var(--amber); font-size: 1.2rem; }
+
+    /* ═══════════════════════════════════════════════════════
+       SLIDE 9 — BUSINESS MODEL
+    ═══════════════════════════════════════════════════════ */
+    .s9-layout { width: 100%; max-width: 920px; text-align: center; }
+
+    .biz-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.3rem;
+      margin-top: 2.2rem;
+    }
+    .biz-card { padding: 2.2rem 2rem; text-align: left; transition: border-color 0.25s, transform 0.25s; }
+    .biz-card:hover { border-color: var(--border-glow) !important; transform: translateY(-3px); }
+    .biz-card.span2 { grid-column: 1/-1; }
+    .biz-eyebrow {
+      font-family: 'Cinzel', serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--amber);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .biz-value {
+      font-family: 'Cinzel', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #f7df94;
+      margin-bottom: 0.4rem;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       SLIDE 10 & 11 — EMPTY PLACEHOLDERS
+    ═══════════════════════════════════════════════════════ */
+    .empty-slide-layout { width: 100%; max-width: 720px; text-align: center; }
+
+    .empty-box {
+      margin-top: 3rem;
+      padding: 5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.2rem;
+      border: 1px dashed var(--border-hi);
+      border-radius: 2px;
+    }
+    .empty-icon { font-size: 3.5rem; opacity: 0.22; }
+    .empty-title {
+      font-family: 'Cinzel', serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--white-35);
+    }
+    .empty-sub {
+      font-size: 0.95rem;
+      color: var(--white-35);
+      font-style: italic;
+    }
+
+    .s11-logo {
+      width: 90px;
+      object-fit: contain;
+      margin-bottom: 1.8rem;
+      opacity: 0.55;
+      filter: drop-shadow(0 0 14px rgba(122,106,148,0.4));
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════════════════════ */
+    @media (max-width: 900px) {
+      .global-header-banner { height: 150px; }
+      .corner-tl { top: 202px; left: 8px; }
+      .corner-tr { top: 202px; right: 8px; }
+      .slide { padding: 15rem 2rem 4.5rem; }
+      .nav-bar::before, .nav-bar::after { display: none; }
+      .s3-layout, .s5-layout, .s6-layout, .s12-layout { grid-template-columns: 1fr; }
+      .s3-img-wrap { display: none; }
+      .profile-frame { width: 200px; height: 200px; margin: 0 auto; }
+      .s12-links { flex-direction: row; justify-content: center; max-width: 100%; }
+      .s12-link-btn { width: auto !important; min-width: 120px; }
+      .prog-grid { grid-template-columns: 1fr 1fr; }
+      .market-top-row {
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+      .market-operator-plus {
+        font-size: 2.2rem;
+        margin: 0.2rem 0;
+      }
+      .market-operator-equals {
+        font-size: 2.2rem;
+        margin: 0.2rem 0;
+      }
+    }
+    @media (max-width: 600px) {
+      .global-header-banner { height: 110px; }
+      .corner-tl { top: 162px; left: 8px; }
+      .corner-tr { top: 162px; right: 8px; }
+      .slide { padding: 12rem 1.2rem 4rem; }
+      .s1-title { font-size: 2.4rem; }
+      .loop-flow { flex-direction: column; align-items: center; gap: 0.4rem; }
+      .loop-arrow { transform: rotate(90deg); }
+      .loop-node { width: 85%; }
+      .prog-grid { grid-template-columns: 1fr; }
+      .biz-grid { grid-template-columns: 1fr; }
+      .biz-card.span2 { grid-column: auto; }
+      th, td { padding: 0.7rem 0.5rem; font-size: 0.85rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ░░░ 90s CORNER DECORATIONS ░░░ -->
+<div class="corner-decor corner-tl"></div>
+<div class="corner-decor corner-tr"></div>
+<div class="corner-decor corner-bl"></div>
+<div class="corner-decor corner-br"></div>
+
+<!-- ░░░ TOP NAV ░░░ -->
+<nav class="nav-bar">
+  <div class="nav-logo-wrap">
+    <img src="assets/images/BASE_LOGO.png" alt="Logo" />
+    <span class="nav-title">When The Last Card Falls</span>
+  </div>
+  <span class="nav-counter">
+    <span data-lang="tr">Slayt</span>
+    <span data-lang="en">Slide</span>
+    <strong id="current-num">1</strong> / 10
+  </span>
+  <div class="lang-switch-wrap">
+    <button class="lang-btn active" id="lang-tr-btn">TR</button>
+    <span class="lang-sep">|</span>
+    <button class="lang-btn" id="lang-en-btn">EN</button>
+  </div>
+</nav>
+
+<!-- ░░░ GLOBAL HEADER BANNER ░░░ -->
+<div class="global-header-banner">
+  <img src="assets/images/header2.jpg" alt="Header Banner" class="global-header-bg" />
+  <div class="global-header-overlay"></div>
+  <h1 class="global-banner-title">When The Last Card Falls</h1>
+</div>
+
+<!-- ░░░ SLIDE DECK ░░░ -->
+<div class="deck" id="deck">
+
+  <!-- ─── 1. TITLE ─── -->
+  <div class="slide active" data-index="0">
+    <div class="s1-inner">
+      <div class="section-divider"><span class="section-divider-icon">✦</span></div>
+      <p class="s1-tagline">
+        <span data-lang="tr">"Karanlığın en derininde hayatta kalmak, bazen sadece kılıcın gücüne değil,<br/>
+        elindeki son kartın kaderine bağlıdır.<br/>
+        Çünkü bazen zindandan sağ çıkmak için, elinizin iyi gelmesi gerekir."</span>
+        <span data-lang="en">"Surviving the deepest darkness depends not just on the strength of your blade,<br/>
+        but on the fate of the last card in your hand.<br/>
+        Because sometimes, to escape the dungeon, you just need to get dealt a good hand."</span>
+      </p>
+      <div class="s1-download-wrap">
+        <a href="https://drive.google.com/file/d/1maHWkoFT3BvNN0LCRArsWGCtV-MiEuWO/view?usp=sharing" target="_blank" class="ctrl-btn s1-download-btn">
+          <span class="download-icon">📥</span>
+          <span data-lang="tr">PROTOTİPİ İNDİR</span>
+          <span data-lang="en">DOWNLOAD PROTOTYPE</span>
+        </a>
+      </div>
+      <div class="s1-video-wrapper">
+        <a href="https://www.youtube.com/watch?v=f_m_gCy8kGc" target="_blank" class="s1-video-link" aria-label="Videoyu YouTube'da izleyin">
+          <div class="s1-video-thumbnail-wrap">
+            <img src="https://img.youtube.com/vi/f_m_gCy8kGc/maxresdefault.jpg" alt="Video Önizlemesi" class="s1-video-thumb" />
+            <div class="s1-play-btn">
+              <span class="play-icon">▶</span>
+            </div>
+            <div class="s1-video-overlay-text">
+              <span data-lang="tr">YouTube'da İzle</span>
+              <span data-lang="en">Watch on YouTube</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── 2. MARKET OPPORTUNITY ─── -->
+  <div class="slide" data-index="1">
+    <div class="s2-layout">
+      <span class="eyebrow">
+        <span data-lang="tr">Pazardaki Fırsat</span>
+        <span data-lang="en">The Market Opportunity</span>
+      </span>
+      <h2 class="slide-title">
+        <span data-lang="tr">Pazardaki Fırsat</span>
+        <span data-lang="en">The Market Opportunity</span>
+      </h2>
+      <div class="section-divider"><span class="section-divider-icon">◆</span></div>
+      <div class="market-container">
+        <div class="market-top-row">
+          <div class="rpg-panel market-card">
+            <span class="mc-label">
+              <span data-lang="tr">Kart / Deckbuilding Oyunları</span>
+              <span data-lang="en">Card / Deckbuilding Games</span>
+            </span>
+            <div class="mc-title">Slay the Spire · Balatro</div>
+            <p class="mc-body" data-lang="tr">Derin taktik ve strateji sunar. Ancak sıra tabanlı yapısı bazı oyuncuların aradığı anlık aksiyonu sağlayamaz.</p>
+            <p class="mc-body" data-lang="en">Offers deep tactics and strategy. However, their turn-based nature cannot provide the instant action that some players crave.</p>
+          </div>
+          
+          <div class="market-operator-plus">+</div>
+          
+          <div class="rpg-panel market-card">
+            <span class="mc-label">
+              <span data-lang="tr">Aksiyon Roguelike Oyunları</span>
+              <span data-lang="en">Action Roguelike Games</span>
+            </span>
+            <div class="mc-title">Hades · Dead Cells</div>
+            <p class="mc-body" data-lang="tr">Hızlı ve tatmin edici. Ancak stratejik derinlik ve kart yönetimi mekaniği ikinci planda kalır.</p>
+            <p class="mc-body" data-lang="en">Fast-paced and satisfying. However, strategic depth and card management mechanics take a back seat.</p>
+          </div>
+        </div>
+        
+        <div class="market-operator-equals">=</div>
+        
+        <div class="rpg-panel market-card market-card-bottom" style="border-color: var(--border-glow);">
+          <span class="mc-label">
+            <span data-lang="tr">◆ Fırsat</span>
+            <span data-lang="en">◆ The Opportunity</span>
+          </span>
+          <div class="mc-title">
+            <span data-lang="tr">İki devasa kitleyi tek bir evrende buluşturmak</span>
+            <span data-lang="en">Uniting two massive player bases in a single universe</span>
+          </div>
+          <p class="mc-body" data-lang="tr">Hem refleks hem de zeka gerektiren — her iki türün hayranlarına hitap eden yeni nesil bir hibrit deneyim. Ne saf kart oyunu, ne saf roguelike. İkisinin en iyisi.</p>
+          <p class="mc-body" data-lang="en">A next-generation hybrid experience requiring both reflexes and brains, appealing to fans of both genres. Neither a pure card game, nor a pure roguelike. The best of both worlds.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── 3. SOLUTION ─── -->
+  <div class="slide" data-index="2">
+    <div style="width: 100%; max-width: 960px;">
+      <span class="eyebrow">
+        <span data-lang="tr">Çözüm</span>
+        <span data-lang="en">The Solution</span>
+      </span>
+      <h2 class="slide-title">
+        <span data-lang="tr">Çözüm</span>
+        <span data-lang="en">The Solution</span>
+      </h2>
+      <div class="section-divider"><span class="section-divider-icon">◆</span></div>
+      
+      <div class="s3-layout" style="margin-top: 1.5rem; align-items: center;">
+        <ul class="sol-list" style="margin-top: 0;">
+          <li class="rpg-panel">
+            <span class="sol-icon">⚔</span>
+            <span data-lang="tr">Düşmanları <strong>gerçek zamanlı</strong> olarak pataklayın — yön tuşlarına atanmış kartlarla anlık saldırılar yapın.</span>
+            <span data-lang="en">Slash enemies in <strong>real-time</strong> — execute instant attacks using cards mapped to directional inputs.</span>
+          </li>
+          <li class="rpg-panel">
+            <span class="sol-icon">🃏</span>
+            <span data-lang="tr">Savaşırken <strong>poker elleri kurun</strong> — 5 vuruşun ardından kombinasyon devasa hasar çarpanı sağlar.</span>
+            <span data-lang="en">Build <strong>poker hands</strong> while fighting — after 5 hits, the combination yields a massive damage multiplier.</span>
+          </li>
+          <li class="rpg-panel">
+            <span class="sol-icon">🔒</span>
+            <span data-lang="tr">Zindanın gizemli kapılarını açmak için elinizdeki <strong>değerli kartları kalıcı olarak feda edin</strong>.</span>
+            <span data-lang="en">Sacrifice your <strong>valuable cards permanently</strong> to unlock the mysterious gates of the dungeon.</span>
+          </li>
+        </ul>
+        <div class="s3-img-wrap">
+          <img src="assets/images/comboGif.gif" alt="Combo Gameplay" class="s3-fan-img" style="filter: none; opacity: 1.0; width: min(400px, 48vw); border: 2px solid var(--border-hi); box-shadow: 0 0 20px rgba(168,155,196,0.4);" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── 4. GAMEPLAY LOOP ─── -->
+  <div class="slide" data-index="3">
+    <div class="s4-layout">
+      <span class="eyebrow">
+        <span data-lang="tr">Temel Oynanış Döngüsü</span>
+        <span data-lang="en">Core Gameplay Loop</span>
+      </span>
+      <h2 class="slide-title">
+        <span data-lang="tr">Temel Oynanış Döngüsü</span>
+        <span data-lang="en">Core Gameplay Loop</span>
+      </h2>
+      <div class="section-divider"><span class="section-divider-icon">◆</span></div>
+      <div class="loop-flow">
+        <div class="rpg-panel loop-node">
+          <span class="loop-num">01</span>
+          <span class="loop-icon">🗺️</span>
+          <span class="loop-label" data-lang="tr">Keşfet &amp;<br/>Savaş</span>
+          <span class="loop-label" data-lang="en">Explore &amp;<br/>Fight</span>
+        </div>
+        <div class="loop-arrow">→</div>
+        <div class="rpg-panel loop-node">
+          <span class="loop-num">02</span>
+          <span class="loop-icon">🃏</span>
+          <span class="loop-label" data-lang="tr">Düşmandan<br/>Kart Topla</span>
+          <span class="loop-label" data-lang="en">Collect Cards<br/>from Enemies</span>
+        </div>
+        <div class="loop-arrow">→</div>
+        <div class="rpg-panel loop-node">
+          <span class="loop-num">03</span>
+          <span class="loop-icon">🎴</span>
+          <span class="loop-label" data-lang="tr">Deste &amp;<br/>Slotları Yapılandır</span>
+          <span class="loop-label" data-lang="en">Configure Deck<br/>&amp; Slots</span>
+        </div>
+        <div class="loop-arrow">→</div>
+        <div class="rpg-panel loop-node">
+          <span class="loop-num">04</span>
+          <span class="loop-icon">🔓</span>
+          <span class="loop-label" data-lang="tr">Kapı İçin<br/>Kart Feda Et</span>
+          <span class="loop-label" data-lang="en">Sacrifice Cards<br/>for Gates</span>
+        </div>
+        <div class="loop-arrow">→</div>
+        <div class="rpg-panel loop-node">
+          <span class="loop-num">05</span>
+          <span class="loop-icon">⬆️</span>
+          <span class="loop-label" data-lang="tr">Kalıcı Gelişmelerle<br/>Sonraki Kat</span>
+          <span class="loop-label" data-lang="en">Next Floor via<br/>Permanent Upgrades</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── 5. POKER COMBO ─── -->
+  <div class="slide" data-index="4">
+    <div class="s5-layout">
+      <div>
+        <span class="eyebrow">
+          <span data-lang="tr">Benzersiz Mekanik</span>
+          <span data-lang="en">Unique Mechanic</span>
+        </span>
+        <h2 class="slide-title">
+          <span data-lang="tr">Poker Saldırı Kombo Sistemi</span>
+          <span data-lang="en">Poker Attack Combo System</span>
+        </h2>
+        <div class="section-divider"><span class="section-divider-icon">◆</span></div>
+        <ul class="mech-points" data-lang="tr">
+          <li>Aktif 5 saldırı slotuna atanan kartlar — semboller: Karo ♦, Maça ♠, Sinek ♣, Kupa ♥</li>
+          <li>Her başarılı vuruşta o kartın sembolü ve değeri <strong>Kombo Eline</strong> eklenir.</li>
+          <li><strong>5. vuruşta Finisher tetiklenir:</strong> One Pair → Royal Flush arası poker eli tespit edilir, hasar çarpanı hesaplanır ve slow-motion bitiriş vuruşu oynatılır.</li>
+        </ul>
+        <ul class="mech-points" data-lang="en">
+          <li>Cards assigned to 5 active attack slots — suits: Diamonds ♦, Spades ♠, Clubs ♣, Hearts ♥</li>
+          <li>With each successful hit, that card's suit and value are added to the <strong>Combo Hand</strong>.</li>
+          <li><strong>The 5th hit triggers a Finisher:</strong> a poker hand is evaluated from One Pair to Royal Flush, damage multiplier is calculated, and a slow-motion finisher strike is executed.</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">One Pair</span>
+          <span class="tag">Two Pair</span>
+          <span class="tag">Flush</span>
+          <span class="tag">Full House</span>
+          <span class="tag">Four of a Kind</span>
+          <span class="tag">Royal Flush</span>
+        </div>
+      </div>
+      <div class="rpg-panel combo-widget">
+        <span class="combo-widget-label">— COMBO HAND —</span>
+        <div class="combo-hand-name">FULL HOUSE</div>
+        <div class="combo-cards-row">
+          <div class="cc"><span class="cc-suit suit-r">♥</span><span class="cc-val">K</span></div>
+          <div class="cc"><span class="cc-suit suit-r">♦</span><span class="cc-val">K</span></div>
+          <div class="cc"><span class="cc-suit suit-w">♠</span><span class="cc-val">K</span></div>
+          <div class="cc"><span class="cc-suit suit-w">♣</span><span class="cc-val">7</span></div>
+          <div class="cc"><span class="cc-suit suit-r">♥</span><span class="cc-val">7</span></div>
+        </div>
+        <div class="combo-mult">×42</div>
+        <span class="combo-mult-sub">
+          <span data-lang="tr">HASAR ÇARPANI</span>
+          <span data-lang="en">DAMAGE MULTIPLIER</span>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── 6. SACRIFICE ─── -->
+  <div class="slide" data-index="5">
+    <div class="s6-layout">
+      <div class="lock-visual">
+        <img src="assets/images/Lock.png" alt="Skull Lock" class="lock-img" />
+        <div class="rpg-panel lock-meter">
+          <span class="lock-meter-label">
+            <span data-lang="tr">Kilitli Kapı · Değer 14</span>
+            <span data-lang="en">Locked Gate · Value 14</span>
+          </span>
+          <div class="lock-bar-outer">
+            <div class="lock-bar-inner"></div>
+          </div>
+          <div class="lock-bar-txt">
+            <span data-lang="tr">Seçilen Kartlar: 9 / 14</span>
+            <span data-lang="en">Selected Cards: 9 / 14</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <span class="eyebrow">
+          <span data-lang="tr">Benzersiz Mekanik</span>
+          <span data-lang="en">Unique Mechanic</span>
+        </span>
+        <h2 class="slide-title">
+          <span data-lang="tr">Kart Harcama Kilit Sistemi</span>
+          <span data-lang="en">Card Spending Lock System</span>
+        </h2>
+        <div class="section-divider"><span class="section-divider-icon">◆</span></div>
+        <ul class="mech-points" data-lang="tr">
+          <li>Zindan kapılarının her birinin sayısal bir <strong>kilit değeri</strong> vardır.</li>
+          <li>Oyuncu bu değeri karşılamak için destesindeki kartları seçer ve <strong>kalıcı olarak feda eder</strong>.</li>
+          <li><strong>Risk / Ödül Dengesi:</strong> "Güçlü As kartımı savaşta mı kullansam, yoksa kapıyı açmak için mi yedireyim?"</li>
+        </ul>
+        <ul class="mech-points" data-lang="en">
+          <li>Each dungeon gate has a numerical <strong>lock value</strong>.</li>
+          <li>The player selects and <strong>permanently sacrifices</strong> cards from their deck to meet this value.</li>
+          <li><strong>Risk / Reward Balance:</strong> "Should I use my powerful Ace card in combat, or sacrifice it to open the gate?"</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">
+            <span data-lang="tr">Kalıcı Kayıp</span>
+            <span data-lang="en">Permanent Loss</span>
+          </span>
+          <span class="tag">
+            <span data-lang="tr">Taktiksel Seçim</span>
+            <span data-lang="en">Tactical Choice</span>
+          </span>
+          <span class="tag">
+            <span data-lang="tr">Risk / Ödül</span>
+            <span data-lang="en">Risk / Reward</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── 7. PROGRESSION ─── -->
+  <div class="slide" data-index="6">
+    <div class="s7-layout">
+      <span class="eyebrow">
+        <span data-lang="tr">Prosedürel Evren &amp; İlerleme</span>
+        <span data-lang="en">Procedural World &amp; Progression</span>
+      </span>
+      <h2 class="slide-title">
+        <span data-lang="tr">Prosedürel İlerleme</span>
+        <span data-lang="en">Progression &amp; Roguelike</span>
+      </h2>
+      <div class="section-divider"><span class="section-divider-icon">◆</span></div>
+      <div class="prog-grid">
+        <div class="rpg-panel prog-card">
+          <div class="prog-icon">🏗️</div>
+          <div class="prog-card-title">
+            <span data-lang="tr">Prosedürel Odalar</span>
+            <span data-lang="en">Procedural Rooms</span>
+          </div>
+          <p data-lang="tr">Prosedürel olarak oluşturulan oda düzenleri ve düşman yerleşimleri — her run tamamen farklı.</p>
+          <p data-lang="en">Procedurally generated room layouts and enemy placements — every run is completely unique.</p>
+        </div>
+        <div class="rpg-panel prog-card">
+          <div class="prog-icon">📈</div>
+          <div class="prog-card-title">
+            <span data-lang="tr">Değişen Zorluk</span>
+            <span data-lang="en">Scaling Difficulty</span>
+          </div>
+          <p data-lang="tr">Her katta farklı zorluk seviyeleri, kart düşme şansları ve kapı ağırlıkları dinamik olarak belirlenir.</p>
+          <p data-lang="en">Different difficulty levels, card drop rates, and gate requirements are dynamically calculated on each floor.</p>
+        </div>
+        <div class="rpg-panel prog-card">
+          <div class="prog-icon">💾</div>
+          <div class="prog-card-title">
+            <span data-lang="tr">Kalıcı İlerleme</span>
+            <span data-lang="en">Permanent Progression</span>
+          </div>
+          <p data-lang="tr">Katlar arasında can değeri korunur ve deste bir sonraki kata aktarılır — seçimlerin ağırlığı devam eder.</p>
+          <p data-lang="en">Health values carry over between floors and your deck progresses with you — the consequences of your choices persist.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── 8. COMPETITIVE TABLE ─── -->
+  <div class="slide" data-index="7">
+    <div class="s8-layout">
+      <span class="eyebrow">
+        <span data-lang="tr">Pazar &amp; Rakip Analizi</span>
+        <span data-lang="en">Market &amp; Competitor Analysis</span>
+      </span>
+      <h2 class="slide-title">
+        <span data-lang="tr">Rakip Analizi</span>
+        <span data-lang="en">Competitive Landscape</span>
+      </h2>
+      <div class="section-divider"><span class="section-divider-icon">◆</span></div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>
+                <span data-lang="tr">Özellik</span>
+                <span data-lang="en">Feature</span>
+              </th>
+              <th>Slay the Spire</th>
+              <th>Hades</th>
+              <th>Balatro</th>
+              <th class="col-ours">When The Last Card Falls</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <span data-lang="tr">Gerçek Zamanlı Aksiyon</span>
+                <span data-lang="en">Real-time Action</span>
+              </td>
+              <td><span class="tcross">✕</span></td>
+              <td><span class="tcheck">✓</span></td>
+              <td><span class="tcross">✕</span></td>
+              <td class="col-ours"><span class="tcheck">✓</span></td>
+            </tr>
+            <tr>
+              <td>
+                <span data-lang="tr">Poker / Kombinasyon Mekaniği</span>
+                <span data-lang="en">Poker / Combo Mechanics</span>
+              </td>
+              <td><span class="tcross">✕</span></td>
+              <td><span class="tcross">✕</span></td>
+              <td><span class="tcheck">✓</span></td>
+              <td class="col-ours"><span class="tcheck">✓</span></td>
+            </tr>
+            <tr>
+              <td>
+                <span data-lang="tr">Deste Oluşturma (Deckbuilding)</span>
+                <span data-lang="en">Deckbuilding</span>
+              </td>
+              <td><span class="tcheck">✓</span></td>
+              <td><span class="tcross">✕</span></td>
+              <td><span class="tcheck">✓</span></td>
+              <td class="col-ours"><span class="tcheck">✓</span></td>
+            </tr>
+            <tr>
+              <td>
+                <span data-lang="tr">Bulmaca / Kart Harcama</span>
+                <span data-lang="en">Puzzles / Card Sacrifice</span>
+              </td>
+              <td><span class="tcross">✕</span></td>
+              <td><span class="tcross">✕</span></td>
+              <td><span class="tcross">✕</span></td>
+              <td class="col-ours"><span class="tcheck">✓</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── 9. BUSINESS MODEL ─── -->
+  <div class="slide" data-index="8">
+    <div class="s9-layout">
+      <span class="eyebrow">
+        <span data-lang="tr">İş Modeli &amp; Platform</span>
+        <span data-lang="en">Business Model &amp; Platform</span>
+      </span>
+      <h2 class="slide-title">
+        <span data-lang="tr">İş Modeli</span>
+        <span data-lang="en">Business Model</span>
+      </h2>
+      <div class="section-divider"><span class="section-divider-icon">◆</span></div>
+      <div class="biz-grid">
+        <div class="rpg-panel biz-card span2" style="border-color:var(--border-glow);">
+          <span class="biz-eyebrow">
+            <span data-lang="tr">İş Modeli</span>
+            <span data-lang="en">Business Model</span>
+          </span>
+          <div class="biz-value">
+            <span data-lang="tr">Premium — Tek Seferlik Satın Alım</span>
+            <span data-lang="en">Premium — One-time Purchase</span>
+          </div>
+          <p data-lang="tr">Mikro işlem yok. Pay-to-win yok. Oyuncu deneyimi her şeyin önünde — satın al, oyna, bitir. Tam değer.</p>
+          <p data-lang="en">No microtransactions. No pay-to-win. Player experience comes first — buy it, play it, finish it. True value.</p>
+        </div>
+        <div class="rpg-panel biz-card">
+          <span class="biz-eyebrow">Platform</span>
+          <div class="biz-value">PC — Steam</div>
+          <p data-lang="tr">Birincil ve tek piyasaya çıkış hedefi. Roguelike ve deckbuilder oyuncularının yoğun olduğu ekosistem.</p>
+          <p data-lang="en">Primary and sole launch target. An ecosystem dense with action-roguelike and deckbuilder players.</p>
+        </div>
+        <div class="rpg-panel biz-card">
+          <span class="biz-eyebrow">
+            <span data-lang="tr">Hedef Kitle</span>
+            <span data-lang="en">Target Audience</span>
+          </span>
+          <div class="biz-value">
+            <span data-lang="tr">Hades + Balatro Oyuncuları</span>
+            <span data-lang="en">Hades + Balatro Players</span>
+          </div>
+          <p data-lang="tr">Hem aksiyon hem kart stratejisi seven hibrit profil. Her iki oyun kitlesini aynı anda çekecek konumlanma.</p>
+          <p data-lang="en">A hybrid profile loving both action and card strategy. Positioned to capture both player bases simultaneously.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- ─── 10. TEAM & CONTACT ─── -->
+  <div class="slide" data-index="9">
+    <div style="width: 100%; max-width: 960px; text-align: center;">
+      <span class="eyebrow">
+        <span data-lang="tr">Ekip &amp; İletişim</span>
+        <span data-lang="en">Team &amp; Contact</span>
+      </span>
+      <h2 class="slide-title">
+        <span data-lang="tr">Ekip &amp; İletişim</span>
+        <span data-lang="en">Team &amp; Contact</span>
+      </h2>
+      <div class="section-divider"><span class="section-divider-icon">◆</span></div>
+      
+      <div class="s12-layout" style="margin-top: 2rem;">
+        <div class="s12-left-col">
+          <div class="studio-branding">
+            <img src="assets/images/BASE_LOGO.png" alt="Hardman Games Logo" class="studio-logo" />
+            <span class="studio-name">Hardman Games</span>
+          </div>
+          <div class="rpg-panel profile-frame">
+            <img src="assets/images/serhat.png" alt="Serhat Serter" class="profile-img" />
+          </div>
+          <div class="s12-links">
+            <a href="https://x.com/HardmanGames02" target="_blank" class="ctrl-btn s12-link-btn" style="text-decoration: none;">
+              <span>X / Twitter</span>
+            </a>
+            <a href="https://www.linkedin.com/in/serhatserter02/" target="_blank" class="ctrl-btn s12-link-btn" style="text-decoration: none;">
+              <span>LinkedIn</span>
+            </a>
+            <a href="mailto:hardmangames02@gmail.com" class="ctrl-btn s12-link-btn" style="text-decoration: none;">
+              <span>E-Mail</span>
+            </a>
+          </div>
+        </div>
+        
+        <div class="rpg-panel s12-right-col">
+          <span class="mc-label">
+            <span data-lang="tr">Geliştirici / Kurucu</span>
+            <span data-lang="en">Developer / Founder</span>
+          </span>
+          <div class="mc-title" style="font-size: 1.6rem; color: var(--white); margin-bottom: 0.8rem;">Serhat Serter</div>
+          <hr class="glow-hr" style="margin: 0.8rem 0 1.2rem 0;" />
+          <div class="mc-body" data-lang="tr" style="text-align: left; font-size: 1.05rem;">
+            <p style="margin-bottom: 1rem;">Merhaba, ben Serhat.</p>
+            <p style="margin-bottom: 1rem;">2020 yılında Bilgisayar Mühendisliği bölümünden mezun oldum ve o zamandan beri oyun geliştirme alanında çalışıyorum. Kariyerime Hyper-Casual ve Hybrid-Casual mobil oyunlar geliştirerek başladım. Mobil oyun geliştirmede yaklaşık üç yıllık bir deneyim kazandıktan sonra savunma sanayisine geçiş yaptım. Şu anda Unity kullanarak eğitim ve simülasyon projeleri geliştiriyorum.</p>
+            <p>Profesyonel çalışmalarımın yanı sıra, boş zamanlarımı solo oyun projeleri geliştirerek, VR teknolojileriyle deneyler yaparak ve shader ile VFX gibi gelişmiş Unity özellikleri üzerine derinleşerek geçiriyorum.</p>
+          </div>
+          <div class="mc-body" data-lang="en" style="text-align: left; font-size: 1.05rem;">
+            <p style="margin-bottom: 1rem;">Hi, I'm Serhat.</p>
+            <p style="margin-bottom: 1rem;">I graduated with a degree in Computer Engineering in 2020 and have been working in game development ever since. I started my career by developing Hyper-Casual and Hybrid-Casual mobile games. After gaining around three years of experience in mobile game development, I transitioned to working in the defense industry, where I currently develop training and simulation projects using Unity.</p>
+            <p>Alongside my professional work, I spend my free time developing solo game projects, experimenting with VR technologies, and diving deeper into advanced Unity features such as shaders and VFX.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /deck -->
+
+<!-- ░░░ BOTTOM CONTROLS ░░░ -->
+<div class="controls">
+  <button class="ctrl-btn" id="btn-prev" aria-label="Prev/Back" disabled>
+    <span data-lang="tr">◄ GERİ</span>
+    <span data-lang="en">◄ BACK</span>
+  </button>
+  <div class="dots" id="dots" role="tablist" aria-label="Slaytlar"></div>
+  <button class="ctrl-btn" id="btn-next" aria-label="Next">
+    <span data-lang="tr">İLERİ ►</span>
+    <span data-lang="en">NEXT ►</span>
+  </button>
+</div>
+
+<script>
+(function() {
+  'use strict';
+
+  const slides   = Array.from(document.querySelectorAll('.slide'));
+  const dotsWrap = document.getElementById('dots');
+  const btnPrev  = document.getElementById('btn-prev');
+  const btnNext  = document.getElementById('btn-next');
+  const numEl    = document.getElementById('current-num');
+  const TOTAL    = slides.length;
+  let current    = 0;
+  let animating  = false;
+
+  /* ── Build dots ── */
+  slides.forEach(function(_, i) {
+    const d = document.createElement('button');
+    d.className = 'dot' + (i === 0 ? ' active' : '');
+    d.setAttribute('role', 'tab');
+    d.setAttribute('aria-label', 'Slayt ' + (i + 1));
+    d.addEventListener('click', function() { goTo(i); });
+    dotsWrap.appendChild(d);
+  });
+
+  function getDots() { return Array.from(dotsWrap.querySelectorAll('.dot')); }
+
+
+
+  function updateNav() {
+    numEl.textContent = current + 1;
+    btnPrev.disabled  = current === 0;
+    btnNext.disabled  = current === TOTAL - 1;
+    const dots = getDots();
+    dots.forEach(function(d, i) {
+      d.classList.toggle('active', i === current);
+    });
+
+
+  }
+
+  function goTo(index) {
+    if (animating) return;
+    if (index < 0 || index >= TOTAL) return;
+    if (index === current) return;
+
+    animating = true;
+    const forward = index > current;
+
+    /* Hide current slide */
+    const from = slides[current];
+    from.style.transition = 'opacity 0.38s ease, transform 0.38s ease';
+    from.style.opacity    = '0';
+    from.style.transform  = forward ? 'translateX(-80px)' : 'translateX(80px)';
+
+    /* Prepare next slide off-screen */
+    const to = slides[index];
+    to.style.transition  = 'none';
+    to.style.opacity     = '0';
+    to.style.transform   = forward ? 'translateX(80px)' : 'translateX(-80px)';
+    to.style.visibility  = 'visible';
+
+    /* Force layout, then animate in */
+    void to.offsetWidth;
+
+    to.style.transition  = 'opacity 0.38s ease, transform 0.38s ease';
+    to.style.opacity     = '1';
+    to.style.transform   = 'translateX(0)';
+
+    /* After animation ends, clean up */
+    setTimeout(function() {
+      from.style.transition  = '';
+      from.style.opacity     = '';
+      from.style.transform   = '';
+      from.style.visibility  = 'hidden';
+      from.classList.remove('active');
+
+      to.style.transition  = '';
+      to.style.opacity     = '';
+      to.style.transform   = '';
+      to.classList.add('active');
+
+      current   = index;
+      animating = false;
+      updateNav();
+    }, 400);
+  }
+
+  /* Button handlers */
+  btnPrev.addEventListener('click', function() { goTo(current - 1); });
+  btnNext.addEventListener('click', function() { goTo(current + 1); });
+
+  /* Keyboard navigation */
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown')  goTo(current + 1);
+    if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')    goTo(current - 1);
+  });
+
+  /* Touch / swipe */
+  var touchStartX = null;
+  document.addEventListener('touchstart', function(e) {
+    touchStartX = e.touches[0].clientX;
+  }, { passive: true });
+  document.addEventListener('touchend', function(e) {
+    if (touchStartX === null) return;
+    var dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 50) {
+      goTo(dx < 0 ? current + 1 : current - 1);
+    }
+    touchStartX = null;
+  }, { passive: true });
+
+  /* Language Toggle Implementation */
+  const trBtn = document.getElementById('lang-tr-btn');
+  const enBtn = document.getElementById('lang-en-btn');
+  
+  function setLanguage(lang) {
+    if (lang === 'tr') {
+      document.body.classList.add('lang-tr');
+      document.body.classList.remove('lang-en');
+      if (trBtn) trBtn.classList.add('active');
+      if (enBtn) enBtn.classList.remove('active');
+    } else {
+      document.body.classList.add('lang-en');
+      document.body.classList.remove('lang-tr');
+      if (enBtn) enBtn.classList.add('active');
+      if (trBtn) trBtn.classList.remove('active');
+    }
+    localStorage.setItem('deck-lang', lang);
+  }
+
+  if (trBtn) trBtn.addEventListener('click', function() { setLanguage('tr'); });
+  if (enBtn) enBtn.addEventListener('click', function() { setLanguage('en'); });
+
+  const savedLang = localStorage.getItem('deck-lang') || 'tr';
+  setLanguage(savedLang);
+
+  /* Init */
+  updateNav();
+})();
+</script>
+</body>
+</html>
