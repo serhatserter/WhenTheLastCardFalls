@@ -55,7 +55,7 @@
     body {
       background: var(--purple-deep);
       color: #e0d8cc; /* parchment cream */
-      font-family: 'Georgia', serif;
+      font-family: 'Inter', sans-serif;
       font-size: 18px;
       line-height: 1.65;
     }
@@ -94,6 +94,127 @@
     .download-icon {
       font-size: 1.25rem;
       text-shadow: 0 0 5px var(--white);
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       SLIDE 10 — ROADMAP STYLING
+    ═══════════════════════════════════════════════════════ */
+    .roadmap-timeline {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.2rem;
+      margin-top: 1.8rem;
+      width: 100%;
+    }
+    .roadmap-node {
+      padding: 1.8rem 1.4rem;
+      text-align: left;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+    .roadmap-node:hover {
+      border-color: var(--border-glow) !important;
+      transform: translateY(-3px);
+    }
+    .rm-phase {
+      font-family: 'Cinzel', serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      color: var(--amber);
+      display: block;
+      margin-bottom: 0.4rem;
+      text-transform: uppercase;
+    }
+    .rm-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.6rem;
+    }
+    .rm-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.8rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .rm-list li {
+      font-size: 0.82rem;
+      color: var(--white-60);
+      line-height: 1.4;
+      padding-left: 0.6rem;
+      border-left: 2px solid var(--border-hi);
+    }
+    .rm-status {
+      display: inline-block;
+      margin-top: 0.8rem;
+      font-family: 'Cinzel', serif;
+      font-size: 0.58rem;
+      letter-spacing: 0.1em;
+      padding: 0.2rem 0.6rem;
+      border: 1px solid transparent;
+      border-radius: 1px;
+      text-transform: uppercase;
+    }
+    .status-completed {
+      border-color: var(--check);
+      color: var(--check);
+      background: rgba(128, 232, 145, 0.08);
+    }
+    .status-active {
+      border-color: var(--purple-glow);
+      color: var(--purple-glow);
+      background: rgba(146, 92, 250, 0.08);
+    }
+    .status-planned {
+      border-color: var(--white-35);
+      color: var(--white-35);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       SLIDE 11 — FINANCIAL ROADMAP STYLING
+    ═══════════════════════════════════════════════════════ */
+    .financial-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1.2fr 1.1fr;
+      gap: 1.3rem;
+      margin-top: 1.8rem;
+      width: 100%;
+    }
+    .fin-card {
+      padding: 2.2rem 1.8rem;
+      text-align: left;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+    .fin-card:hover {
+      border-color: var(--border-glow) !important;
+      transform: translateY(-3px);
+    }
+    .fin-value {
+      font-family: 'Cinzel', serif;
+      font-size: 1.9rem;
+      font-weight: 900;
+      color: var(--amber);
+      margin-bottom: 0.8rem;
+      text-shadow: 0 0 10px rgba(250,209,84,0.3);
+      line-height: 1;
+    }
+    .fin-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      gap: 0.6rem;
+      margin-top: 0.8rem;
+    }
+    .fin-list li {
+      font-size: 0.88rem;
+      color: var(--white-85);
+      line-height: 1.4;
+      padding-left: 0.8rem;
+      border-left: 2px solid var(--border-hi);
     }
 
     /* ═══════════════════════════════════════════════════════
@@ -1173,7 +1294,7 @@
       .global-header-banner { height: 150px; }
       .corner-tl { top: 202px; left: 8px; }
       .corner-tr { top: 202px; right: 8px; }
-      .slide { padding: 15rem 2rem 4.5rem; }
+      .slide { padding: 15rem 2rem 4.5rem; justify-content: flex-start; }
       .nav-bar::before, .nav-bar::after { display: none; }
       .s3-layout, .s5-layout, .s6-layout, .s12-layout { grid-template-columns: 1fr; gap: 2rem; }
       .s3-img-wrap { margin-top: 1.5rem; display: flex; justify-content: center; }
@@ -1185,6 +1306,8 @@
       .s12-link-btn { width: auto !important; min-width: 120px; }
       .s12-right-col { padding: 1.5rem 1.2rem; margin-top: 1rem; }
       .prog-grid { grid-template-columns: 1fr 1fr; }
+      .roadmap-timeline { grid-template-columns: 1fr; gap: 1.5rem; }
+      .financial-grid { grid-template-columns: 1fr; gap: 1.5rem; }
       .market-top-row {
         flex-direction: column;
         gap: 0.8rem;
@@ -1203,7 +1326,7 @@
       .global-banner-title { font-size: clamp(1.3rem, 5vw, 1.7rem); padding: 0 0.5rem; }
       .corner-tl { top: 162px; left: 8px; }
       .corner-tr { top: 162px; right: 8px; }
-      .slide { padding: 12rem 1.2rem 4.5rem; }
+      .slide { padding: 12rem 1.2rem 4.5rem; justify-content: flex-start; }
       .nav-logo-wrap { display: none; }
       .nav-counter { text-align: left; }
       .nav-bar { padding: 0 1.2rem; }
@@ -1245,7 +1368,7 @@
   <span class="nav-counter">
     <span data-lang="tr">Slayt</span>
     <span data-lang="en">Slide</span>
-    <strong id="current-num">1</strong> / 10
+    <strong id="current-num">1</strong> / 12
   </span>
   <div class="lang-switch-wrap">
     <button class="lang-btn active" id="lang-tr-btn">TR</button>
@@ -1718,8 +1841,194 @@
 
 
 
-  <!-- ─── 10. TEAM & CONTACT ─── -->
+  <!-- ─── 10. ROADMAP ─── -->
   <div class="slide" data-index="9">
+    <div style="width: 100%; max-width: 960px; text-align: center;">
+      <span class="eyebrow">
+        <span data-lang="tr">Geliştirme Yol Haritası</span>
+        <span data-lang="en">Development Roadmap</span>
+      </span>
+      <h2 class="slide-title">
+        <span data-lang="tr">Yol Haritası</span>
+        <span data-lang="en">Roadmap &amp; Milestones</span>
+      </h2>
+      <div class="section-divider"><span class="section-divider-icon">◆</span></div>
+      
+      <div class="roadmap-timeline">
+        <!-- Phase 1 -->
+        <div class="rpg-panel roadmap-node">
+          <span class="rm-phase">Phase 1</span>
+          <div class="rm-title">
+            <span data-lang="tr">Konsept &amp; Prototip</span>
+            <span data-lang="en">Concept &amp; Prototype</span>
+          </div>
+          <ul class="rm-list">
+            <li>
+              <span data-lang="tr">Prosedürel Oda Oluşturucu</span>
+              <span data-lang="en">Procedural Dungeon Generator</span>
+            </li>
+            <li>
+              <span data-lang="tr">Dövüş-Poker Eli Kombosu</span>
+              <span data-lang="en">Action-Combo Combat Loop</span>
+            </li>
+            <li>
+              <span data-lang="tr">Kart Feda Kapıları</span>
+              <span data-lang="en">Sacrifice Gate Locks</span>
+            </li>
+          </ul>
+          <span class="rm-status status-completed">
+            <span data-lang="tr">Tamamlandı</span>
+            <span data-lang="en">Completed</span>
+          </span>
+        </div>
+
+        <!-- Phase 2 -->
+        <div class="rpg-panel roadmap-node">
+          <span class="rm-phase">Phase 2</span>
+          <div class="rm-title">
+            <span data-lang="tr">İçerik &amp; Genişleme</span>
+            <span data-lang="en">Content &amp; Expansion</span>
+          </div>
+          <ul class="rm-list">
+            <li>
+              <span data-lang="tr">Yeni Düşmanlar ve Kart Çeşitleri</span>
+              <span data-lang="en">New Enemies and Card Varieties</span>
+            </li>
+            <li>
+              <span data-lang="tr">Farklı Seviye Tasarımları</span>
+              <span data-lang="en">Different Level Designs</span>
+            </li>
+            <li>
+              <span data-lang="tr">Ekstra Hikaye Elementleri</span>
+              <span data-lang="en">Extra Story Elements</span>
+            </li>
+          </ul>
+          <span class="rm-status status-active">
+            <span data-lang="tr">Aktif</span>
+            <span data-lang="en">Active</span>
+          </span>
+        </div>
+
+        <!-- Phase 3 -->
+        <div class="rpg-panel roadmap-node">
+          <span class="rm-phase">Phase 3</span>
+          <div class="rm-title">
+            <span data-lang="tr">Derinlik &amp; Boss Savaşları</span>
+            <span data-lang="en">Gameplay &amp; Boss Fights</span>
+          </div>
+          <ul class="rm-list">
+            <li>
+              <span data-lang="tr">Boss Savaşları</span>
+              <span data-lang="en">Boss Fights</span>
+            </li>
+            <li>
+              <span data-lang="tr">Oyun İçi Ekonomi</span>
+              <span data-lang="en">In-game Economy</span>
+            </li>
+            <li>
+              <span data-lang="tr">Görsel &amp; İşitsel Cila</span>
+              <span data-lang="en">Visual &amp; Audio Polish</span>
+            </li>
+          </ul>
+          <span class="rm-status status-planned">
+            <span data-lang="tr">Planlanan</span>
+            <span data-lang="en">Planned</span>
+          </span>
+        </div>
+
+        <!-- Phase 4 -->
+        <div class="rpg-panel roadmap-node">
+          <span class="rm-phase">Phase 4</span>
+          <div class="rm-title">
+            <span data-lang="tr">Balans, QA &amp; Lansman</span>
+            <span data-lang="en">Balance &amp; Launch</span>
+          </div>
+          <ul class="rm-list">
+            <li>
+              <span data-lang="tr">Oyun Dengesi</span>
+              <span data-lang="en">Game Balance</span>
+            </li>
+            <li>
+              <span data-lang="tr">Kontroller &amp; QA</span>
+              <span data-lang="en">Controls &amp; QA</span>
+            </li>
+          </ul>
+          <span class="rm-status status-planned">
+            <span data-lang="tr">Planlanan</span>
+            <span data-lang="en">Planned</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── 11. FINANCIAL ROADMAP ─── -->
+  <div class="slide" data-index="10">
+    <div style="width: 100%; max-width: 960px; text-align: center;">
+      <span class="eyebrow">
+        <span data-lang="tr">Finansal Yol Haritası</span>
+        <span data-lang="en">Financial Roadmap</span>
+      </span>
+      <h2 class="slide-title">
+        <span data-lang="tr">Finansal Bütçe &amp; Dağılım</span>
+        <span data-lang="en">Funding &amp; Allocation</span>
+      </h2>
+      <div class="section-divider"><span class="section-divider-icon">◆</span></div>
+      
+      <div class="financial-grid">
+        <!-- Budget Goal -->
+        <div class="rpg-panel fin-card">
+          <span class="mc-label">
+            <span data-lang="tr">Bütçe Hedefi</span>
+            <span data-lang="en">Funding Goal</span>
+          </span>
+          <div class="fin-value">$80K - $100K</div>
+          <div class="rm-title" style="margin-top:0.5rem;">
+            <span data-lang="tr">Geliştirme Süresi</span>
+            <span data-lang="en">Development Period</span>
+          </div>
+          <p class="mc-body" data-lang="tr" style="font-size: 0.95rem; line-height: 1.5; color: var(--white-85);">12 - 15 aylık tam zamanlı geliştirme süreci için hedeflenen bütçe aralığı.</p>
+          <p class="mc-body" data-lang="en" style="font-size: 0.95rem; line-height: 1.5; color: var(--white-85);">Target funding range for 12 - 15 months of full-time development.</p>
+        </div>
+
+        <!-- Budget Allocation -->
+        <div class="rpg-panel fin-card">
+          <span class="mc-label">
+            <span data-lang="tr">Gider Kalemleri</span>
+            <span data-lang="en">Expense Items</span>
+          </span>
+          <ul class="fin-list" style="margin-top: 1.2rem;">
+            <li>
+              <span data-lang="tr"><strong>Geliştirici Brüt Giderleri:</strong> Tek geliştirici için 12-15 aylık maaş, lisans ve ekipman maliyetleri.</span>
+              <span data-lang="en"><strong>Developer Gross Expenses:</strong> 12-15 months salary, software licenses, and hardware for a single developer.</span>
+            </li>
+            <li>
+              <span data-lang="tr"><strong>Freelance Art İhtiyaçları:</strong> UI/UX tasarımları, 2D/3D çizimler, animasyon ve kart tasarımları.</span>
+              <span data-lang="en"><strong>Freelance Art Needs:</strong> UI/UX layout, 2D/3D character/environment assets, animation, and card artwork.</span>
+            </li>
+            <li>
+              <span data-lang="tr"><strong>Telifli Ses ve Müzik Giderleri:</strong> Atmosferik gotik müzikler (OST) ve ses efektleri (SFX) lisanslama.</span>
+              <span data-lang="en"><strong>Royalty &amp; Licensed Audio:</strong> Atmospheric gothic soundtracks (OST) and special sound effects (SFX) licensing.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- ROI & Market Strategy -->
+        <div class="rpg-panel fin-card">
+          <span class="mc-label">
+            <span data-lang="tr">Finansal Dönüş Planı</span>
+            <span data-lang="en">ROI &amp; Strategy</span>
+          </span>
+          <div class="rm-title" style="margin-top:0.5rem;">PC / Steam Focus</div>
+          <p class="mc-body" data-lang="tr" style="font-size: 0.95rem; line-height: 1.5; color: var(--white-85);">Premium satış modeliyle Steam'de çıkış. Hades ve Balatro kitlelerine hitap eden hibrit yapısı ile yüksek niş dönüşümü ve ilk yılda 100k adet satış hedefi.</p>
+          <p class="mc-body" data-lang="en" style="font-size: 0.95rem; line-height: 1.5; color: var(--white-85);">Premium model on Steam. High ROI driven by the unique fusion of deckbuilders and action-roguelikes, targeting 100k sales in the first year.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── 12. TEAM & CONTACT ─── -->
+  <div class="slide" data-index="11">
     <div style="width: 100%; max-width: 960px; text-align: center;">
       <span class="eyebrow">
         <span data-lang="tr">Ekip &amp; İletişim</span>
@@ -1845,6 +2154,7 @@
 
     /* Prepare next slide off-screen */
     const to = slides[index];
+    to.scrollTop = 0; // Reset scroll position to top
     to.style.transition  = 'none';
     to.style.opacity     = '0';
     to.style.transform   = forward ? 'translateX(80px)' : 'translateX(-80px)';
@@ -1886,19 +2196,7 @@
     if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')    goTo(current - 1);
   });
 
-  /* Touch / swipe */
-  var touchStartX = null;
-  document.addEventListener('touchstart', function(e) {
-    touchStartX = e.touches[0].clientX;
-  }, { passive: true });
-  document.addEventListener('touchend', function(e) {
-    if (touchStartX === null) return;
-    var dx = e.changedTouches[0].clientX - touchStartX;
-    if (Math.abs(dx) > 50) {
-      goTo(dx < 0 ? current + 1 : current - 1);
-    }
-    touchStartX = null;
-  }, { passive: true });
+  /* Touch / swipe disabled by user request */
 
   /* Language Toggle Implementation */
   const trBtn = document.getElementById('lang-tr-btn');
