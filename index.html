@@ -174,6 +174,92 @@
     }
 
     /* ═══════════════════════════════════════════════════════
+       SLIDE 11-13 — PHASE DETAILS STYLING
+    ═══════════════════════════════════════════════════════ */
+    .phase-details-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+      margin-top: 1.8rem;
+      width: 100%;
+    }
+    .phase-details-grid.grid-2 {
+      grid-template-columns: repeat(2, 1fr);
+      max-width: 720px;
+      margin: 1.8rem auto 0;
+    }
+    .phase-card {
+      padding: 1.8rem 1.4rem;
+      text-align: left;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+    .phase-card:hover {
+      border-color: var(--border-glow) !important;
+      transform: translateY(-3px);
+    }
+    .phase-val {
+      font-family: 'Cinzel', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--amber);
+      margin-top: 0.8rem;
+      border-top: 1px double var(--border);
+      padding-top: 0.6rem;
+      text-shadow: 0 0 10px rgba(250,209,84,0.2);
+    }
+    .phase-total-footer {
+      margin-top: 1.8rem;
+      font-family: 'Cinzel', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.05em;
+      text-shadow: 0 0 12px rgba(255,255,255,0.25);
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       SLIDE 14 — COMPARISON STYLING
+    ═══════════════════════════════════════════════════════ */
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin: 1.8rem auto 0;
+      width: 100%;
+      max-width: 820px;
+    }
+    .compare-card {
+      padding: 2.2rem 1.8rem;
+      text-align: center;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+    .compare-card:hover {
+      border-color: var(--border-glow) !important;
+      transform: translateY(-3px);
+    }
+    .compare-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.8rem;
+    }
+    .compare-val {
+      font-family: 'Cinzel', serif;
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: var(--amber);
+      margin-bottom: 1rem;
+      text-shadow: 0 0 10px rgba(250,209,84,0.35);
+      line-height: 1;
+    }
+    .compare-desc {
+      font-size: 0.95rem;
+      color: var(--white-85);
+      line-height: 1.6;
+    }
+
+    /* ═══════════════════════════════════════════════════════
        SLIDE 11 — FINANCIAL ROADMAP STYLING
     ═══════════════════════════════════════════════════════ */
     .financial-grid {
@@ -1309,6 +1395,9 @@
       .prog-grid { grid-template-columns: 1fr 1fr; }
       .roadmap-timeline { grid-template-columns: 1fr; gap: 1.5rem; }
       .financial-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .phase-details-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .phase-details-grid.grid-2 { grid-template-columns: 1fr; }
+      .compare-grid { grid-template-columns: 1fr; gap: 1.5rem; }
       .market-top-row {
         flex-direction: column;
         gap: 0.8rem;
@@ -1370,7 +1459,7 @@
   <span class="nav-counter">
     <span data-lang="tr">Slayt</span>
     <span data-lang="en">Slide</span>
-    <strong id="current-num">1</strong> / 12
+    <strong id="current-num">1</strong> / 16
   </span>
   <div class="lang-switch-wrap">
     <button class="lang-btn active" id="lang-tr-btn">TR</button>
@@ -1960,8 +2049,276 @@
     </div>
   </div>
 
-  <!-- ─── 11. FINANCIAL ROADMAP ─── -->
+  <!-- ─── 11. PHASE 2 DETAIL ─── -->
   <div class="slide" data-index="10">
+    <div style="width: 100%; max-width: 960px; text-align: center;">
+      <span class="eyebrow">
+        <span data-lang="tr">Phase 2 Detayı</span>
+        <span data-lang="en">Phase 2 Details</span>
+      </span>
+      <h2 class="slide-title">
+        <span data-lang="tr">İçerik &amp; Seviye Tasarımı</span>
+        <span data-lang="en">Content &amp; Level Design</span>
+      </h2>
+      <div class="section-divider"><span class="section-divider-icon">◆</span></div>
+      
+      <div class="phase-details-grid">
+        <!-- Card 1 -->
+        <div class="rpg-panel phase-card">
+          <span class="mc-label">
+            <span data-lang="tr">Yeni Düşmanlar &amp; Kartlar</span>
+            <span data-lang="en">New Enemies &amp; Cards</span>
+          </span>
+          <p class="mc-body" data-lang="tr" style="font-size: 0.95rem; line-height: 1.5; color: var(--white-85); margin-top:0.8rem;">
+            15 farklı düşman çeşiti ve 30 kart çeşiti geliştirilecektir. Her düşman ve kartın kodlanması/tasarlanması için en az 3 iş günü ayrılmıştır.
+          </p>
+          <p class="mc-body" data-lang="en" style="font-size: 0.95rem; line-height: 1.5; color: var(--white-85); margin-top:0.8rem;">
+            15 unique enemies and 30 card variations will be developed. A minimum of 3 workdays is allocated for each enemy and card.
+          </p>
+          <div class="phase-val">
+            <span data-lang="tr">Süre: 135 İş Günü</span>
+            <span data-lang="en">Duration: 135 Workdays</span>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="rpg-panel phase-card">
+          <span class="mc-label">
+            <span data-lang="tr">Seviye Tasarımları</span>
+            <span data-lang="en">Level Designs</span>
+          </span>
+          <p class="mc-body" data-lang="tr" style="font-size: 0.95rem; line-height: 1.5; color: var(--white-85); margin-top:0.8rem;">
+            Zindan üretimi için farklı tipte odaların tasarlanması ve kodlanması için oda başına 1 iş günü. Toplam 15 farklı oda.
+          </p>
+          <p class="mc-body" data-lang="en" style="font-size: 0.95rem; line-height: 1.5; color: var(--white-85); margin-top:0.8rem;">
+            Designing and developing different room templates for the generator. 1 workday per room for 15 distinct rooms.
+          </p>
+          <div class="phase-val">
+            <span data-lang="tr">Süre: 15 İş Günü</span>
+            <span data-lang="en">Duration: 15 Workdays</span>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="rpg-panel phase-card">
+          <span class="mc-label">
+            <span data-lang="tr">Hikaye Elementleri</span>
+            <span data-lang="en">Story Elements</span>
+          </span>
+          <p class="mc-body" data-lang="tr" style="font-size: 0.95rem; line-height: 1.5; color: var(--white-85); margin-top:0.8rem;">
+            Zindanın karanlık atmosferini besleyecek tutarlı bir hikaye akışının kurulması, diyaloglar ve anlatım elementleri.
+          </p>
+          <p class="mc-body" data-lang="en" style="font-size: 0.95rem; line-height: 1.5; color: var(--white-85); margin-top:0.8rem;">
+            Establishing a consistent narrative flow, lore elements, and writing dialogs to enhance the dark gothic atmosphere.
+          </p>
+          <div class="phase-val">
+            <span data-lang="tr">Süre: 10 İş Günü</span>
+            <span data-lang="en">Duration: 10 Workdays</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="phase-total-footer">
+        <span data-lang="tr">Phase 2 Toplam Geliştirme Süresi: <strong>160 İş Günü</strong></span>
+        <span data-lang="en">Phase 2 Total Development Time: <strong>160 Workdays</strong></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── 12. PHASE 3 DETAIL ─── -->
+  <div class="slide" data-index="11">
+    <div style="width: 100%; max-width: 960px; text-align: center;">
+      <span class="eyebrow">
+        <span data-lang="tr">Phase 3 Detayı</span>
+        <span data-lang="en">Phase 3 Details</span>
+      </span>
+      <h2 class="slide-title">
+        <span data-lang="tr">Oynanış Derinliği &amp; Boss Savaşları</span>
+        <span data-lang="en">Gameplay Depth &amp; Boss Fights</span>
+      </h2>
+      <div class="section-divider"><span class="section-divider-icon">◆</span></div>
+      
+      <div class="phase-details-grid">
+        <!-- Card 1 -->
+        <div class="rpg-panel phase-card">
+          <span class="mc-label">
+            <span data-lang="tr">Epic Boss Savaşları</span>
+            <span data-lang="en">Epic Boss Battles</span>
+          </span>
+          <p class="mc-body" data-lang="tr" style="font-size: 0.95rem; line-height: 1.5; color: var(--white-85); margin-top:0.8rem;">
+            Oyuncuya ilerleme hissiyatı vermek amacıyla tasarlanacak 5 adet boss. Boss başına en az 5 iş günü geliştirme süresi.
+          </p>
+          <p class="mc-body" data-lang="en" style="font-size: 0.95rem; line-height: 1.5; color: var(--white-85); margin-top:0.8rem;">
+            5 distinct boss fights designed to mark milestone progression. A minimum of 5 workdays budgeted per boss.
+          </p>
+          <div class="phase-val">
+            <span data-lang="tr">Süre: 25 İş Günü</span>
+            <span data-lang="en">Duration: 25 Workdays</span>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="rpg-panel phase-card">
+          <span class="mc-label">
+            <span data-lang="tr">Oyun İçi Ekonomi</span>
+            <span data-lang="en">In-game Economy</span>
+          </span>
+          <p class="mc-body" data-lang="tr" style="font-size: 0.95rem; line-height: 1.5; color: var(--white-85); margin-top:0.8rem;">
+            Deste satıcıları, karakter gelişim dengeleri ve kart yeteneklerinin ekonomik entegrasyonu için detaylı test ve cila.
+          </p>
+          <p class="mc-body" data-lang="en" style="font-size: 0.95rem; line-height: 1.5; color: var(--white-85); margin-top:0.8rem;">
+            Calibrating merchants, deck modifications, character traits, and card purchase balances through detailed tuning.
+          </p>
+          <div class="phase-val">
+            <span data-lang="tr">Süre: 10 İş Günü</span>
+            <span data-lang="en">Duration: 10 Workdays</span>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="rpg-panel phase-card">
+          <span class="mc-label">
+            <span data-lang="tr">Görsel &amp; İşitsel Cila</span>
+            <span data-lang="en">Visual &amp; Audio Polish</span>
+          </span>
+          <p class="mc-body" data-lang="tr" style="font-size: 0.95rem; line-height: 1.5; color: var(--white-85); margin-top:0.8rem;">
+            Görsel ve ses iyileştirmelerinin yapılması.
+          </p>
+          <p class="mc-body" data-lang="en" style="font-size: 0.95rem; line-height: 1.5; color: var(--white-85); margin-top:0.8rem;">
+            Visual and audio improvements.
+          </p>
+          <div class="phase-val">
+            <span data-lang="tr">Süre: 15 İş Günü</span>
+            <span data-lang="en">Duration: 15 Workdays</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="phase-total-footer">
+        <span data-lang="tr">Phase 3 Toplam Geliştirme Süresi: <strong>50 İş Günü</strong></span>
+        <span data-lang="en">Phase 3 Total Development Time: <strong>50 Workdays</strong></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── 13. PHASE 4 DETAIL ─── -->
+  <div class="slide" data-index="12">
+    <div style="width: 100%; max-width: 960px; text-align: center;">
+      <span class="eyebrow">
+        <span data-lang="tr">Phase 4 Detayı</span>
+        <span data-lang="en">Phase 4 Details</span>
+      </span>
+      <h2 class="slide-title">
+        <span data-lang="tr">Denge, QA &amp; Lansman</span>
+        <span data-lang="en">Balance, QA &amp; Launch</span>
+      </h2>
+      <div class="section-divider"><span class="section-divider-icon">◆</span></div>
+      
+      <div class="phase-details-grid grid-2">
+        <!-- Card 1 -->
+        <div class="rpg-panel phase-card">
+          <span class="mc-label">
+            <span data-lang="tr">Oyun Dengesi (Game Balance)</span>
+            <span data-lang="en">Game Balance</span>
+          </span>
+          <p class="mc-body" data-lang="tr" style="font-size: 0.95rem; line-height: 1.5; color: var(--white-85); margin-top:0.8rem;">
+            Balatro'daki gibi kart kombinasyonlarının oyuncuya aşırı güçlü olma (OP) hissiyatı vermesi ve zorluk dengesi için yoğun test döngüsü.
+          </p>
+          <p class="mc-body" data-lang="en" style="font-size: 0.95rem; line-height: 1.5; color: var(--white-85); margin-top:0.8rem;">
+            Fine-tuning combo multipliers to deliver satisfying "OP mechanics" (like Balatro) while keeping tactical depth.
+          </p>
+          <div class="phase-val">
+            <span data-lang="tr">Süre: 20 İş Günü</span>
+            <span data-lang="en">Duration: 20 Workdays</span>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="rpg-panel phase-card">
+          <span class="mc-label">
+            <span data-lang="tr">Kontroller &amp; QA</span>
+            <span data-lang="en">Controls &amp; QA</span>
+          </span>
+          <p class="mc-body" data-lang="tr" style="font-size: 0.95rem; line-height: 1.5; color: var(--white-85); margin-top:0.8rem;">
+            Tüm yazılımsal bugların temizlenmesi, klavye/fare/gamepad entegrasyonu ve Steam API'lerinin sorunsuz entegrasyon testleri.
+          </p>
+          <p class="mc-body" data-lang="en" style="font-size: 0.95rem; line-height: 1.5; color: var(--white-85); margin-top:0.8rem;">
+            Squashing all code bugs, optimizing multi-input support (keyboard/gamepad), and validating Steam API.
+          </p>
+          <div class="phase-val">
+            <span data-lang="tr">Süre: 30 İş Günü</span>
+            <span data-lang="en">Duration: 30 Workdays</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="phase-total-footer">
+        <span data-lang="tr">Phase 4 Toplam Geliştirme Süresi: <strong>50 İş Günü</strong></span>
+        <span data-lang="en">Phase 4 Total Development Time: <strong>50 Workdays</strong></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── 14. TIMELINE COMPARISON ─── -->
+  <div class="slide" data-index="13">
+    <div style="width: 100%; max-width: 960px; text-align: center;">
+      <span class="eyebrow">
+        <span data-lang="tr">Süre Analizi</span>
+        <span data-lang="en">Timeline Analysis</span>
+      </span>
+      <h2 class="slide-title">
+        <span data-lang="tr">Çalışma Modelleri Karşılaştırması</span>
+        <span data-lang="en">Development Model Comparison</span>
+      </h2>
+      <div class="section-divider"><span class="section-divider-icon">◆</span></div>
+      
+      <p class="mc-body" style="font-size: 1.05rem; margin-bottom: 1rem;">
+        <span data-lang="tr">Toplam Geliştirme İhtiyacı: <strong>260 İş Günü</strong> (Phase 2, 3 ve 4)</span>
+        <span data-lang="en">Total Development Required: <strong>260 Workdays</strong> (Phase 2, 3 and 4)</span>
+      </p>
+
+      <div class="compare-grid">
+        <!-- TAM ZAMANLI -->
+        <div class="rpg-panel compare-card">
+          <div class="compare-title">
+            <span data-lang="tr">Tam Zamanlı (Full-Time)</span>
+            <span data-lang="en">Full-Time Schedule</span>
+          </div>
+          <div class="compare-val">
+            <span data-lang="tr">12 Ay (1 Yıl)</span>
+            <span data-lang="en">12 Months (1 Year)</span>
+          </div>
+          <p class="compare-desc" data-lang="tr">
+            Haftada 5 iş günü çalışma düzeninde (yıllık ~260 iş günü), proje 12 ay gibi kısa bir sürede tamamlanır ve lansmana hazır hale gelir.
+          </p>
+          <p class="compare-desc" data-lang="en">
+            Working 5 days per week (~260 workdays/year), the complete roadmap is finished and ready for launch in exactly 12 months.
+          </p>
+        </div>
+
+        <!-- YARI ZAMANLI -->
+        <div class="rpg-panel compare-card">
+          <div class="compare-title">
+            <span data-lang="tr">Yarı Zamanlı (Part-Time)</span>
+            <span data-lang="en">Part-Time Schedule</span>
+          </div>
+          <div class="compare-val">
+            <span data-lang="tr">30 Ay (2.5 Yıl)</span>
+            <span data-lang="en">30 Months (2.5 Years)</span>
+          </div>
+          <p class="compare-desc" data-lang="tr">
+            Haftada 2 iş günü çalışma düzeninde (yıllık 104 iş günü), geliştirme sürecinin tamamlanması 2.5 yıl (30 ay) sürer.
+          </p>
+          <p class="compare-desc" data-lang="en">
+            Working 2 days per week (104 workdays/year), completing the identical milestones extends the schedule to 30 months (2.5 years).
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── 15. FINANCIAL ROADMAP ─── -->
+  <div class="slide" data-index="14">
     <div style="width: 100%; max-width: 960px; text-align: center;">
       <span class="eyebrow">
         <span data-lang="tr">Finansal Yol Haritası</span>
@@ -2025,8 +2382,8 @@
     </div>
   </div>
 
-  <!-- ─── 12. TEAM & CONTACT ─── -->
-  <div class="slide" data-index="11">
+  <!-- ─── 16. TEAM & CONTACT ─── -->
+  <div class="slide" data-index="15">
     <div style="width: 100%; max-width: 960px; text-align: center;">
       <span class="eyebrow">
         <span data-lang="tr">Ekip &amp; İletişim</span>
@@ -2048,11 +2405,9 @@
             <img src="assets/images/serhat.png" alt="Serhat Serter" class="profile-img" />
           </div>
           <div class="s12-links">
-            <a href="https://x.com/HardmanGames02" target="_blank" class="ctrl-btn s12-link-btn" style="text-decoration: none;">
-              <span>X / Twitter</span>
-            </a>
-            <a href="https://www.linkedin.com/in/serhatserter02/" target="_blank" class="ctrl-btn s12-link-btn" style="text-decoration: none;">
-              <span>LinkedIn</span>
+            <a href="https://linktr.ee/serhatserter" target="_blank" class="ctrl-btn s12-link-btn" style="text-decoration: none;">
+              <span data-lang="tr">Linkler</span>
+              <span data-lang="en">Links</span>
             </a>
             <a href="mailto:hardmangames02@gmail.com" class="ctrl-btn s12-link-btn" style="text-decoration: none;">
               <span>E-Mail</span>
